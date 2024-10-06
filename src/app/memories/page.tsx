@@ -1,0 +1,7 @@
+'use client';
+
+const Memories = () => {
+  return <div>Memories</div>;
+};
+
+export default Memories;

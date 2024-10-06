@@ -13,7 +13,7 @@ import { ChevronDownIcon } from '@heroicons/react/20/solid';
 
 const navMenus = [
   { dhiName: 'ތާރީޚް', engName: 'memories', href: '/memories' },
-  { dhiName: 'އިޢުލާން', engName: 'iulan', href: '/publications' },
+  { dhiName: 'އިޢުލާން', engName: 'iulan', href: '/announcements' },
   { dhiName: 'ތަފާތު ހިސާބު', engName: 'statistics', href: '/statistics' },
   { dhiName: 'ޕްރޮޖެކްޓްސް', engName: 'projects', href: '/projects' },
   { dhiName: 'ކައުންސިލް', engName: 'council', href: '/council' },
@@ -201,7 +201,7 @@ const NavMenu = () => {
           </Popover>
           {navMenus.map((navMenu) => (
             <a
-              key={navMenu.dhiName}
+              key={navMenu.engName}
               href={navMenu.href}
               className="
           text-lg
