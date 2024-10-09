@@ -22,17 +22,9 @@ import { BiBuildings } from 'react-icons/bi';
 import { BiSolidSchool } from 'react-icons/bi';
 import Transportation from '@/components/ui/Transportation';
 import Population from '@/components/Population';
+import SecHeading from '@/components/SecHeading';
 
 const Dhevvadhoo = () => {
-  const categoryData = useQuery(api.queries.countByCategory);
-
-  if (!categoryData) return <div>Loading...</div>;
-
-  // Ensure categoryData is an object
-  if (typeof categoryData !== 'object' || categoryData === null) {
-    return <div>No categories found.</div>;
-  }
-
   return (
     <Container>
       <PageTitle pageTitle="ދެއްވަދޫ" />
@@ -44,28 +36,12 @@ const Dhevvadhoo = () => {
           name="މާލެއިން ފެށިގެން 404 ކިލޯ މީޓަރ"
         />
       </section>
-      <section>
-        <PageIntroText />
-      </section>
-      <section className="">
-        <Population />
-      </section>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {Object.entries(categoryData).map(([category, data]) => (
-          <div key={category} className="p-4 bg-white rounded-lg shadow-lg">
-            <h2 className="text-xl font-semibold">{category}</h2>
-            <p>Total items: {data.count}</p>
+      <PageIntroText />
 
-            <ul className="mt-2">
-              {data.items.map((item) => (
-                <li key={item._id} className="border-b py-2">
-                  <strong>Name:</strong> {item.name} <br />
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
+      <Population />
+      <SecHeading secHeading="ދަތުރުފަތުރު" />
+
+      <Transportation />
     </Container>
   );
 };

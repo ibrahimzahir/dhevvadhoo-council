@@ -38,7 +38,6 @@ export const fetchPopulations = query(async ({ db }) => {
     0
   );
 
-  // Return both the fully resolved populations and the total population
   return {
     populations,
     totalPopulation,
@@ -52,44 +51,36 @@ export const getTransport = query({
 });
 
 interface TransportationItem {
-  _id: string; // ID of the item
-  name: string; // Name of the item
-  // Price of the item
+  _id: string;
+  name: string;
 }
 
-// Define the structure for category counts
 interface CategoryData {
-  count: number; // Total number of items in the category
-  items: TransportationItem[]; // Array of transportation items
+  count: number;
+  items: TransportationItem[];
 }
 
-// Define the overall structure for category counts
 interface CategoryCounts {
-  [category: string]: CategoryData; // Using index signature for dynamic keys
+  [category: string]: CategoryData;
 }
 
 export const countByCategory = query({
   handler: async (ctx) => {
-    // Fetch all items from the transportation table
     const items = await ctx.db.query('transportation').collect();
 
-    // Initialize an empty object to hold category counts
     const categoryCounts: CategoryCounts = {};
 
-    // Iterate over each item to count by category
     for (const item of items) {
       const category = item.category;
 
-      // If the category doesn't exist in categoryCounts, initialize it
       if (!categoryCounts[category]) {
         categoryCounts[category] = { count: 0, items: [] };
       }
 
-      // Increment the count for this category
       categoryCounts[category].count += 1;
-      categoryCounts[category].items.push(item); // Add the item to the category's items
+      categoryCounts[category].items.push(item);
     }
 
-    return categoryCounts; // Return the counts per category
+    return categoryCounts;
   },
 });
