@@ -4,7 +4,27 @@ import { v } from 'convex/values';
 
 export const getCouncilMembers = query({
   async handler(ctx) {
-    return ctx.db.query('staffs').collect();
+    return ctx.db
+      .query('staffs')
+      .filter((q) => q.and(q.eq(q.field('category'), 'councilMember')))
+      .collect();
+  },
+});
+export const getStaffs = query({
+  async handler(ctx) {
+    return ctx.db
+      .query('staffs')
+      .filter((q) => q.and(q.eq(q.field('category'), 'staff')))
+      .collect();
+  },
+});
+
+export const getWdc = query({
+  async handler(ctx) {
+    return ctx.db
+      .query('staffs')
+      .filter((q) => q.and(q.eq(q.field('category'), 'wdc')))
+      .collect();
   },
 });
 
@@ -28,6 +48,19 @@ export const getProjects = query({
   },
 });
 
+export const getClubs = query({
+  async handler(ctx) {
+    const clubs = ctx.db.query('clubs').collect();
+    return clubs;
+  },
+});
+
+export const getOrganizations = query({
+  async handler(ctx) {
+    const organizations = await ctx.db.query('organizations').collect();
+    return organizations;
+  },
+});
 export const fetchPopulations = query(async ({ db }) => {
   // Fetch all records from the 'population' table
   const populations = await db.query('populations').collect();

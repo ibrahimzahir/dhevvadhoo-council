@@ -1,10 +1,10 @@
 'use client';
 
 import { useQuery } from 'convex/react';
-import { api } from '../../../convex/_generated/api';
+import { api } from '../../convex/_generated/api';
 
 import { FaUser } from 'react-icons/fa'; // Example icons
-import { BsGenderMale, BsPeople, BsGenderFemale } from 'react-icons/bs';
+import { BsGenderMale, BsGenderFemale } from 'react-icons/bs';
 
 import { LuBaby } from 'react-icons/lu';
 
@@ -32,7 +32,6 @@ const Transportation = () => {
             <h2 className="text-xl font-semibold">{category}</h2>
             <p>{data.count}</p>
             {transportIcons[category] || <FaUser className="h-6 w-6" />}
-
             <div className="mt-2">
               {data.items.map((item) => (
                 <div key={item._id} className="py-2">

@@ -2,7 +2,6 @@
 
 import { useQuery } from 'convex/react';
 import { api } from '../../convex/_generated/api';
-import Container from './Container';
 
 const PageIntroText = () => {
   const document = useQuery(api.queries.getIslandInfo);

@@ -8,9 +8,11 @@ import PageTitle from '@/components/PageTitle';
 
 import { AiOutlineUser } from 'react-icons/ai';
 import { MdOpenInFull } from 'react-icons/md';
-import Transportation from '@/components/ui/Transportation';
+import Transportation from '@/components/Transportation';
 import Population from '@/components/Population';
 import SecHeading from '@/components/SecHeading';
+import Organization from '@/components/Organization';
+import Clubs from '@/components/Clubs';
 
 const Dhevvadhoo = () => {
   return (
@@ -30,6 +32,13 @@ const Dhevvadhoo = () => {
       <SecHeading secHeading="ދަތުރުފަތުރު" />
 
       <Transportation />
+      <SecHeading secHeading="އޮފީސްތައް" />
+      <section className="">
+        <Organization />
+      </section>
+
+      <SecHeading secHeading="ކުލަބު ޖަމިއްޔާތައް" />
+      <Clubs />
     </Container>
   );
 };

@@ -13,10 +13,10 @@ const PageSubTitle: React.FC<PageSubTitleProp> = ({
   totnumber,
 }) => {
   return (
-    <div className="flex items-center border rounded-2xl py-3 sm:px-4 mx-2">
-      <Icon className="h-6 w-6 mx-4 text-gray-600" />
-      <h2 className="font-base">{name}</h2>
-      <h1 className="px-2">{totnumber}</h1>
+    <div className="flex justify-between items-center py-4 border rounded-lg border-blue-600  text-blue-600 px-4 mx-2">
+      <Icon className="hidden md:block h-6 w-6 text-gray-600 mx-4" />
+      <h2 className="flex-1 text-xs sm:font-base">{name}</h2>
+      <h1 className="text-lg pl-2">{totnumber}</h1>
     </div>
   );
 };

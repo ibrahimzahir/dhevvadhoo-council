@@ -19,6 +19,14 @@ export default function Home() {
             </div>
           );
         })}
+        {/* to do  
+        <News/>
+        <Iulan/>
+        <Gallary/>
+        <Projects/>
+        <CouncilMeetings />
+        
+        */}
       </main>
     </div>
   );
